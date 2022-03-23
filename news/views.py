@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, Http404
 import datetime as dt
+from .models import Article
 
 # Create your views here.
 def welcome(request):
@@ -10,6 +11,7 @@ def welcome(request):
 
 def news_of_day(request):
     date = dt.date.today()
+    news = Article.todays_news()
     # function to convert date object to find exact day
     # day = convert_dates(date)
     # html = f'''
@@ -19,7 +21,7 @@ def news_of_day(request):
     #         </body>
     #         </html>
     #         '''
-    return render(request, 'all-news/today-news.html', {"date": date,})
+    return render(request, 'all-news/today-news.html', {"date": date, "news":news})
 
 
 def convert_dates(dates):
@@ -40,6 +42,12 @@ def past_days_news(request, past_date):
     except ValueError:
         # raise 404 error when valueerror is thrown
         raise Http404()
+        assert False
+    
+    if date == dt.date.today():
+        return redirect(news_of_day)
+
+    news = Article.days_news(date)
         
     # converts data from the string url
     # date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
@@ -54,4 +62,5 @@ def past_days_news(request, past_date):
     #         '''
     if date == dt.date.today():
         return redirect(news_of_day)
-    return render(request, 'all-news/past-news.html', {"date": date})
+    return render(request, 'all-news/past-news.html', {"date": date, "news":news})
+
