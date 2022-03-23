@@ -1,8 +1,8 @@
 from django.test import TestCase
+import datetime as dt
 
 # Create your tests here.
 from .models import Editor, Article, tags
-
 
 class EditorTestClass(TestCase):
 
@@ -56,3 +56,12 @@ class ArticleTestClass(TestCase):
         '''
         today_news = Article.todays_news()
         self.assertTrue(len(today_news)> 0)
+
+    def test_get_news_by_date(self):
+        '''
+        Test case for date filer
+        '''
+        test_date = '2019-03-23'
+        date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
+        news_by_date = Article.days_news(date)
+        self.assertTrue(len(news_by_date) == 0)
