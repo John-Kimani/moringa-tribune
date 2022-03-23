@@ -17,6 +17,12 @@ class Editor(models.Model):
         #     print('Editor was not found')
 
         return self.first_name
+
+    def save_editor(self):
+        '''
+        Function that saves editor
+        '''
+        self.save()
     class Meta:
         ordering = ['first_name']
 
