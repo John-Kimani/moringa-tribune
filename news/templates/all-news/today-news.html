@@ -1,15 +1,26 @@
 {% extends 'all-news/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
 {{block.super}}
 
 <div class="container">
+    <!-- newsletter -->
+    <div class="container-fluid">
+        <form action="{% url 'newsToday' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form letterForm layout='inline' %}
+            <input type="submit" value="Subcribe">
+        </form>
+    </div>
 <!-- looping through news -->
 {% for news_item in news %}
 <div class="row">
     <!-- displaying news articles -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <h2 class="text-center">{{ news_item.title }}</h2>
+        <br>
+        <p>{{ news_item.post}}</p>
     </div>
     <!-- display news article images -->
     <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
