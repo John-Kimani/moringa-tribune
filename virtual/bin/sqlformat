@@ -1,4 +1,4 @@
-#!/home/kimperria/moringa_school/core_projects/django/week_1/moringa-tribune/virtual/bin/python3
+#!/home/kimperria/moringa_school/core_projects/django/week_2/moringa-tribune/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

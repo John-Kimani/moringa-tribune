@@ -13,25 +13,25 @@
         </button>
         <!-- ADDING A SEARCH FORM -->
         <div class="col-md-4 navbar-right col-sm-4">
-          <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+          <form class="navbar-form" role="search" action="{% url 'search_results' %}" style="max-width: 20rem;">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Article" name="article">
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glphicon glyphicon-search"></i></button>
+                <input type="submit" value="submit" class="btn">
               </div>
             </div>
           </form>
         </div>
       
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Past News<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-        </div> -->
+        </div>
       </nav>
 </body>
 </html>
