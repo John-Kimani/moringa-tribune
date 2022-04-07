@@ -146,3 +146,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #user registration
 REGISTER_REDIRECT_URL='newsToday'
+LOGIN_REDIRECT_URL='newsToday'

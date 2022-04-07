@@ -7,9 +7,10 @@ class NewsLetterForm(forms.Form):
     email = forms.EmailField(label='Email')
 
 
-class NewsArticleForm(forms.ModelForm):
-    model = Article
-    exclude = ['editor', 'pub_date']
-    widgets = {
-        'tags': forms.CheckboxSelectMultiple(),
-    }
+class NewArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        exclude = ['editor', 'pub_date']
+        forms.widgets = {
+            'tags': forms.CheckboxSelectMultiple(),
+        }
